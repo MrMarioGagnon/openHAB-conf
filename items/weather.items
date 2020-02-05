@@ -1,0 +1,30 @@
+DateTime                Weather_Current_Observation_Time    "Heure d'observation"                   <time>          {channel="openweathermap:weather-and-forecast:37cd2cd0:local:current#time-stamp"} 
+String                  Weather_Current_Contition           "Conditions météorologiques"            <sun_clouds>    {channel="openweathermap:weather-and-forecast:37cd2cd0:local:current#condition"}
+String                  Weather_Current_Condition_Id        "Id icône condition météo"              <smiley>        {channel="openweathermap:weather-and-forecast:37cd2cd0:local:current#condition-id"}
+Number:Temperature      Weather_Current_Outside_Temperature "Température extérieure"                <temperature>   {channel="openweathermap:weather-and-forecast:37cd2cd0:local:current#temperature"}
+Number:Dimensionless    Weather_Current_Humidity            "Humidité atmosphérique"                <humidity>      {channel="openweathermap:weather-and-forecast:37cd2cd0:local:current#humidity"}
+Number:Speed            Weather_Current_Wind_Speed          "Vitesse du vent"                       <wind>          {channel="openweathermap:weather-and-forecast:37cd2cd0:local:current#wind-speed"}
+
+DateTime                Weather_Day0_Forecast_Date          "Date des prévision jour 0"             <time>          {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastToday#time-stamp"}
+String                  Weather_Day0_Contition              "Conditions météorologiques jour 0"     <sun_clouds>    {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastToday#condition"}
+String                  Weather_Day0_Condition_Id           "Id icône condition météo jour 0"       <smiley>        {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastToday#condition-id"}
+Number:Temperature      Weather_Day0_Min_Temperature        "Température minimale jour 0"           <temperature>   {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastToday#min-temperature"}
+Number:Temperature      Weather_Day0_Max_Temperature        "Température maximale jour 0"           <temperature>   {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastToday#max-temperature"}
+
+DateTime                Weather_Day1_Forecast_Date          "Date des prévision jour +1"            <time>          {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastTomorrow#time-stamp"}
+String                  Weather_Day1_Contition              "Conditions météorologiques jour +1"    <sun_clouds>    {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastTomorrow#condition"}
+String                  Weather_Day1_Condition_Id           "Id icône condition météo jour +1"      <smiley>        {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastTomorrow#condition-id"}
+Number:Temperature      Weather_Day1_Min_Temperature        "Température minimale jour +1"          <temperature>   {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastTomorrow#min-temperature"}
+Number:Temperature      Weather_Day1_Max_Temperature        "Température maximale jour +1"          <temperature>   {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastTomorrow#max-temperature"}
+
+DateTime                Weather_Day2_Forecast_Date          "Date des prévision jour +2"            <time>          {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastDay2#time-stamp"}
+String                  Weather_Day2_Contition              "Conditions météorologiques jour +2"    <sun_clouds>    {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastDay2#condition"}
+String                  Weather_Day2_Condition_Id           "Id icône condition météo jour +2"      <smiley>        {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastDay2#condition-id"}
+Number:Temperature      Weather_Day2_Min_Temperature        "Température minimale jour +2"          <temperature>   {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastDay2#min-temperature"}
+Number:Temperature      Weather_Day2_Max_Temperature        "Température maximale jour +2"          <temperature>   {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastDay2#max-temperature"}
+
+DateTime                Weather_Day3_Forecast_Date          "Date des prévision jour +3"            <time>          {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastDay3#time-stamp"}
+String                  Weather_Day3_Contition              "Conditions météorologiques jour +3"    <sun_clouds>    {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastDay3#condition"}
+String                  Weather_Day3_Condition_Id           "Id icône condition météo jour +3"      <smiley>        {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastDay3#condition-id"}
+Number:Temperature      Weather_Day3_Min_Temperature        "Température minimale jour +3"          <temperature>   {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastDay3#min-temperature"}
+Number:Temperature      Weather_Day3_Max_Temperature        "Température maximale jour +3"          <temperature>   {channel="openweathermap:weather-and-forecast:37cd2cd0:local:forecastDay3#max-temperature"}

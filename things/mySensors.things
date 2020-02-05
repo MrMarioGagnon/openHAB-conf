@@ -1,0 +1,7 @@
+Bridge mqtt:broker:mosqbroker "MySensors Gateway" [ host="192.168.1.54", port="1883", secure=false, username="mqttClient", password="b4cXvj", clientID="OPENHAB", startupCheckEnabled=false  ]
+
+Thing mqtt:topic:mosqbroker:MySensor01 "Corridor Sensor" (mqtt:broker:mosqbroker) @ "Corridor" {
+    Channels:
+        Type number : HumidityValue    "Humidité"      [ stateTopic="mygateway1-out/105/0/1/0/1" ]
+        Type number : TemperatureValue "Température"   [ stateTopic="mygateway1-out/105/1/1/0/0"]
+}

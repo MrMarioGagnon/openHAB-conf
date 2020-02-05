@@ -1,0 +1,2 @@
+Switch  ReceptacleBedroom_01_Switch "Lampe Mario"       <poweroutlet_us>    (gBedroomLights)  [Switchable]  {channel="tplinksmarthome:hs100:73BEB0:switch"}
+Switch  ReceptacleBedroom_02_Switch "Lampe Nathalie"    <poweroutlet_us>    (gBedroomLights)  [Switchable]  {channel="tplinksmarthome:hs100:73FC4A:switch"}

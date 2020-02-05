@@ -1,0 +1,2 @@
+Number:Dimensionless    MySensor01_Humidity       "Humidité corridor [%.0f %%]"      <humidity>      (gRestoreOnStartup) {channel="mqtt:topic:mosqbroker:MySensor01:HumidityValue"}
+Number:Temperature      MySensor01_Temperature    "Température corridor [%.0f °C]"   <temperature>   (gRestoreOnStartup) {channel="mqtt:topic:mosqbroker:MySensor01:TemperatureValue"}

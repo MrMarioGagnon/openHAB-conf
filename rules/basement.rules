@@ -1,0 +1,15 @@
+val LOGNAME = "RULE:basement"
+
+rule "Basement motion"
+when
+    Item MutlisensorBasement_01_Motion changed
+then
+    if(previousState == ON){
+        SwitchBasement_02_Switch.sendCommand(OFF);
+    }
+    if(previousState == OFF){
+        if(MultisensorBasement_01_Luminance.state < 5){
+            SwitchBasement_02_Switch.sendCommand(ON);
+        }
+    }
+end

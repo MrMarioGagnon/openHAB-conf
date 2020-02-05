@@ -1,0 +1,67 @@
+val LOGNAME = "RULE:garageDoorProxySetting"
+val TIME_SIREN = 5
+val TIME_CLOSE = 6
+
+val actions = getActions("mqtt","mqtt:systemBroker:embedded-mqtt-broker")
+
+rule "Left garage door state changed"
+when
+    Item TiltSensorGarageDoor_01_BinarySensor changed
+then
+    vLeftGarageDoorState.postUpdate(newState.toString()) ;
+end
+
+rule "Right garage door state changed"
+when
+    Item TiltSensorGarageDoor_02_BinarySensor changed
+then
+    vRightGarageDoorState.postUpdate(newState.toString()) ;
+end
+
+rule "Left garage door button activated"
+when
+    Item vLeftGarageDoorButton changed
+then
+    if(MarioCell_Online.state == ON || NathalieCell_Online.state == ON){
+
+        if(vLeftGarageDoorState.state == "ON"){
+            Siren_01_SoundVolume.sendCommand(257);
+            Siren_01_Switch.sendCommand(ON);
+
+            createTimer(now.plusSeconds(TIME_SIREN)) [ |
+                Siren_01_Switch.sendCommand(OFF);
+            ]
+
+            createTimer(now.plusSeconds(TIME_CLOSE)) [ |
+                actions.publishMQTT("house/garage/remotecontrol/button","0") ;
+            ]
+
+        }else{
+                actions.publishMQTT("house/garage/remotecontrol/button","0") ;        
+        }
+
+    }
+end
+
+rule "Right garage door button activated"
+when
+    Item vRightGarageDoorButton changed
+then
+    if(MarioCell_Online.state == ON || NathalieCell_Online.state == ON){
+        if(vRightGarageDoorState.state == "ON"){
+            Siren_01_SoundVolume.sendCommand(257);
+            Siren_01_Switch.sendCommand(ON);
+
+            createTimer(now.plusSeconds(TIME_SIREN)) [ |
+                Siren_01_Switch.sendCommand(OFF);
+            ]
+
+            createTimer(now.plusSeconds(TIME_CLOSE)) [ |
+                actions.publishMQTT("house/garage/remotecontrol/button","1") ;
+            ]
+
+        }else{
+                actions.publishMQTT("house/garage/remotecontrol/button","1") ;        
+        }
+    }
+end

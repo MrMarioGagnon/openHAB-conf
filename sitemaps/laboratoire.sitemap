@@ -1,0 +1,63 @@
+sitemap laboratoire label="Laboratoire"{
+
+    Frame label="Virtual"{
+        Selection item=vLeftGarageDoorState mappings=[OFF="Fermée", ON="Ouverte"]
+        Selection item=vRightGarageDoorState mappings=[OFF="Fermée", ON="Ouverte"]
+
+        Switch item=vLeftGarageDoorButton
+        Switch item=vRightGarageDoorButton
+    }
+
+    Frame label="Rez-de-chaussée"{
+        Text item=MySensor01_Temperature
+        Text item=MySensor01_Humidity
+    }
+
+    Frame label="Chambre"{
+        Switch item=ReceptacleBedroom_01_Switch
+        Switch item=ReceptacleBedroom_02_Switch
+    }
+
+    Frame label="Système"{
+        Selection item=fSystem label="Système" mappings=[NULL="Active", Reboot="Reboot", PowerOff="Shut down"]    
+    }
+
+    Frame label="Insteon"{
+        Slider item=DimmerBedroom_Dimmer
+        Slider item=DimmerOffice_Dimmer
+        Switch item=ReceptacleOffice_01_Switch
+    }
+
+    Frame label="Garage" {
+        Text item=MultisensorGarage_Temperature
+        Text item=MultisensorGarage_Humidity
+        Switch item=TiltSensorGarageDoor_01_BinarySensor
+        Switch item=TiltSensorGarageDoor_02_BinarySensor
+        Text item=TiltSensorGarageDoor_01_BatteryLevel
+        Text item=TiltSensorGarageDoor_02_BatteryLevel   
+        Slider item=FanControlGarage_Dimmer
+        Switch item=ReceptacleGarage_01_Switch
+
+    }
+
+    Frame label="Mobile" {
+        Text item=MarioCell_Online
+        Text item=NathalieCell_Online
+    }
+
+    Frame label="Sous-sol"{
+        Text item=MultisensorBasement_01_RelHumidity
+        Text item=MultisensorBasement_01_Temperature
+        Text item=MultisensorBasement_01_Luminance
+    }
+
+    Frame label="Capteurs Portes&Fenêtre"{
+        Switch item=DoorSensorFirstFloor_01_BinarySensor
+        Switch item=DoorSensorFirstFloor_02_BinarySensor
+        Switch item=DoorSensorFirstFloor_03_BinarySensor
+        Switch item=DoorSensorGarage_BinarySensor        
+    }
+
+
+
+}

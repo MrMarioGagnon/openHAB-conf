@@ -1,0 +1,56 @@
+val LOGNAME = "RULE:garageDoorNotifications"
+val EMAIL = "mr.mario.gagnon@gmail.com"
+
+rule "Left garage door is opening"
+when
+    Item vLeftGarageDoorState changed
+then
+
+    logInfo(LOGNAME, "Left garage door state : " + newState.toString())  
+
+    if (newState == "ON"){
+        if (MarioCell_Online.state == OFF) {
+
+            logInfo(LOGNAME, "Sending left garage door opening notification to " + EMAIL)              
+            sendNotification(EMAIL, "La porte gauche du garage vient de s'ouvrir.");        
+        }
+    }
+end
+
+rule "Right garage door is opening"
+when
+    Item vRightGarageDoorState changed
+then
+
+    logInfo(LOGNAME, "Right garage door state : " + newState.toString())  
+
+    if(newState == "ON") {
+
+        if (MarioCell_Online.state == OFF) {
+            sendNotification(EMAIL, "La porte droite du garage vient de s'ouvrir.");        
+        }
+
+    }
+
+    if(newState == "OFF"){
+
+        createTimer(now.plusMinutes(2),[|
+
+            if(NathalieCell_Online.state == ON){
+
+                ReceptacleGarage_01_Switch.sendCommand(ON);
+
+                createTimer(now.plusHours(3)) [ |
+
+                    ReceptacleGarage_01_Switch.sendCommand(OFF);
+
+                ]
+
+            }
+        
+        ])
+
+
+    }
+
+end

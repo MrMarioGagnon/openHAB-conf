@@ -1,0 +1,21 @@
+Group gPropertyLights     "Groupe lumières propriété"       <group>                       
+Group gGazeboLights       "Groupe lumières gazebo"          <group> (gPropertyLights)     
+Group gHouseLights        "Groupe lumières maison"          <group> (gPropertyLights)     
+
+Group gFrontHouseLights   "Groupe lumières avant maison"    <group> (gHouseLights)        
+Group gGarageLights       "Groupe lumières garage"          <group> (gHouseLights)        
+Group gBasementLights     "Groupe lumières sous-sol"        <group> (gHouseLights)        
+
+Group gGroundFloorLights  "Groupe lumières rez-de-chaussée" <group> (gHouseLights)        
+Group gVestibuleLights    "Groupe lumières vestibule"       <group> (gGroundFloorLights)  
+Group gOfficeLights       "Groupe lumières bureau"          <group> (gGroundFloorLights)  
+Group gCorridorLights     "Groupe lumières corridor"        <group> (gGroundFloorLights)  
+Group gBathroomLights     "Groupe lumières salle de bain"   <group> (gGroundFloorLights)  
+Group gKitchenLights      "Groupe lumières cuisine"         <group> (gGroundFloorLights)  
+Group gBedroomLights      "Groupe lumières chambre"         <group> (gGroundFloorLights)  
+Group gLivingRoomLights   "Groupe lumières salon"           <group> (gGroundFloorLights)  
+Group gDiningRoomLights   "Groupe lumières salle à manger"  <group> (gGroundFloorLights)  
+
+Group gEveryChange        "Groupe tout les changements"     <group>                       
+Group gRestoreOnStartup   "Groupe restaurer au démarrage"   <group>                       
+

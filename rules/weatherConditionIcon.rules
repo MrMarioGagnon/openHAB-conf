@@ -1,0 +1,88 @@
+val LOGNAME = "RULE:weatherConditionIcon"
+val MAPNAME = "openWeatherMap.map"
+
+var conditionIcon=""
+var conditionValue=""
+var itemStateString=""
+
+// rule "Set season picture"
+// when
+//     System started or
+//     Item localSun_Season_SeasonName changed
+// then
+//     itemStateString = localSun_Season_SeasonName.state.toString.toLowerCase    
+//     vSeasonName.postUpdate(itemStateString)
+//     logDebug(logName, "vSeasonName : " + itemStateString)  
+
+//     var command = "sudo@@cp@@/etc/openhab2/html/season/" + itemStateString + ".png@@/etc/openhab2/html/season/season.png"
+//     logDebug(logName, "Command: " +  command)
+//     var result = executeCommandLine(command)
+
+//     logDebug(logName, "Result from copying season image:" +  result)
+
+// end
+
+rule "Set current wind speed k/h"
+when System started or
+     Item Weather_Current_Wind_Speed changed
+then
+        var currentWindSpeed = Weather_Current_Wind_Speed.state as Number
+        currentWindSpeed = currentWindSpeed * 3.6
+        vCurrentWindSpeed.postUpdate(currentWindSpeed) 
+end 
+
+rule "Set current condition icon"
+when
+    System started or
+    Item Weather_Current_Condition_Id changed
+then
+    conditionIcon = Weather_Current_Condition_Id.state.toString()
+    conditionValue= transform("MAP", MAPNAME, conditionIcon)
+    vCurrentConditionIcon.postUpdate(conditionValue)
+    logDebug(LOGNAME, "vCurrentConditionIcon : " + vCurrentConditionIcon.state.toString())      
+end
+
+rule "Set weather condition day 0 icon"
+when
+    System started or
+    Item Weather_Day0_Condition_Id changed
+then
+    conditionIcon = Weather_Day0_Condition_Id.state.toString()
+    conditionValue= transform("MAP", MAPNAME, conditionIcon)
+    vWeatherCondition0Icon.postUpdate(conditionValue)
+    logDebug(LOGNAME, "vWeatherCondition0Icon : " + vWeatherCondition0Icon.state.toString())      
+end
+
+rule "Set weather condition day +1 icon"
+when
+    System started or
+    Item Weather_Day1_Condition_Id changed
+then
+    conditionIcon = Weather_Day1_Condition_Id.state.toString()
+    conditionValue= transform("MAP", MAPNAME, conditionIcon)
+    vWeatherCondition1Icon.postUpdate(conditionValue)
+    logDebug(LOGNAME, "vWeatherCondition1Icon : " + vWeatherCondition1Icon.state.toString())      
+end
+
+rule "Set weather condition day +2 icon"
+when
+    System started or
+    Item Weather_Day2_Condition_Id changed
+then
+    conditionIcon = Weather_Day2_Condition_Id.state.toString()
+    conditionValue= transform("MAP", MAPNAME, conditionIcon)
+    vWeatherCondition2Icon.postUpdate(conditionValue)
+    logDebug(LOGNAME, "vWeatherCondition2Icon : " + vWeatherCondition2Icon.state.toString())  
+end
+
+rule "Set weather condition day +3 icon"
+when
+    System started or
+    Item Weather_Day3_Condition_Id changed
+then
+    conditionIcon = Weather_Day3_Condition_Id.state.toString()
+    conditionValue= transform("MAP", MAPNAME, conditionIcon)
+    vWeatherCondition3Icon.postUpdate(conditionValue)
+    logDebug(LOGNAME, "vWeatherCondition3Icon : " + vWeatherCondition3Icon.state.toString())  
+end
+

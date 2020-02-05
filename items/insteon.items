@@ -1,0 +1,3 @@
+Dimmer  DimmerOffice_Dimmer         "Bureau"                    <slider>            (gGroundFloorLights, gOfficeLights)     [Lighting]  {insteonplm="24.E0.A1:F00.00.01#dimmer"}
+Dimmer  DimmerBedroom_Dimmer        "Chambre"                   <slider>            (gBedroomLights)                        [Lighting]  {insteonplm="12.6C.13:F00.00.01#dimmer"}
+Switch  ReceptacleOffice_01_Switch  "Prise de courant bureau"   <poweroutlet_us>                                                        {insteonplm="24.10.38:F00.00.01#dimmer"}

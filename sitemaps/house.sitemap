@@ -1,0 +1,65 @@
+sitemap house label="141 Loiselle"{
+
+    Frame label="Maison"{
+        Switch item=SwitchVestibule_02_Switch label="Toit"
+        Switch item=SwitchVestibule_03_Switch label="Portes"       
+    }
+
+    Frame label="Rez-de-chausée"{
+
+        Slider item=DimmerKitchen_01_Dimmer
+        Slider item=DimmerKitchen_02_Dimmer
+        Slider item=DimmerDiningRoom_Dimmer
+        Slider item=DimmerLivingRoom_Dimmer
+        Slider item=DimmerHall_Dimmer
+
+        Switch item=SwitchVestibule_01_Switch
+    }
+
+    Frame label="Chambre"{
+        Slider item=DimmerBedroom_Dimmer
+        Switch item=ReceptacleBedroom_01_Switch icon="switch"
+        Switch item=ReceptacleBedroom_02_Switch icon="switch"
+    }
+
+    Frame label="Bureau"{
+        Slider item=DimmerOffice_Dimmer
+        Switch item=ReceptacleOffice_01_Switch label="Prise"  
+    }
+
+    Frame label="Sous-sol"{
+        Switch item=SwitchBasement_01_Switch
+        Switch item=SwitchBasement_02_Switch
+    }
+
+    Frame label="Garage" {
+        Switch item=TiltSensorGarageDoor_01_BinarySensor
+        Switch item=TiltSensorGarageDoor_02_BinarySensor
+        Slider item=FanControlGarage_Dimmer
+        Switch item=ReceptacleGarage_01_Switch
+        Switch item=Siren_01_Switch
+        Selection item=Siren_01_SoundVolume mappings=[257="1-1", 258="1-2", 259="1-3", 513="2-1", 514="2-2", 515="2-3", 769="3-1", 770="3-2", 771="3-3", 1025="4-1", 1026="4-2", 1027="4-3", 1281="5-1", 1282="5-2", 1283="5-3"]
+    }
+
+    Frame label="Capteurs Portes&Fenêtre"{
+        Switch item=DoorSensorFirstFloor_01_BinarySensor
+        Switch item=DoorSensorFirstFloor_02_BinarySensor
+        Switch item=DoorSensorFirstFloor_03_BinarySensor
+        Switch item=DoorSensorGarage_BinarySensor        
+    }
+
+    Frame label="Conditions"{
+        Text item=MySensor01_Temperature                label="Rez-de-chausée"
+        Text item=MultisensorBasement_01_Temperature    label="Sous-sol"
+        Text item=MultisensorGarage_Temperature         label="Garage"
+
+        Text item=MySensor01_Humidity                   label="Rez-de-chausée"
+        Text item=MultisensorBasement_01_RelHumidity    label="Sous-sol"
+        Text item=MultisensorGarage_Humidity            label="Garage"
+    }
+
+    Frame label="Système"{
+        Selection item=fSystem label="Système" mappings=[NULL="Active", Reboot="Reboot", PowerOff="Shut down"]    
+    }
+
+}

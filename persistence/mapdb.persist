@@ -1,0 +1,7 @@
+Strategies {
+    default = everyChange
+}
+ 
+Items {
+    gRestoreOnStartup*: strategy = restoreOnStartup, everyUpdate
+}

@@ -1,0 +1,19 @@
+String  vWeatherIconFlag        "Identifiant d'icône météo [%s]"                <text>      
+Number  vCurrentWindSpeed       "Vitesse courante du vent km/h [%.0f km/h]"     <wind>      
+String  vTimeOfDay              "Moment de la journée [MAP(timeOfDay.map):%s]"  <text>      
+String  vCurrentConditionIcon   "Icône condition météo courante [%s]"           <smiley>    
+String  vWeatherCondition0Icon  "Icône condition météo jour 0 [%s]"             <smiley>    
+String  vWeatherCondition1Icon  "Icône condition météo jour 1 [%s]"             <smiley>    
+String  vWeatherCondition2Icon  "Icône condition météo jour 2 [%s]"             <smiley>    
+String  vWeatherCondition3Icon  "Icône condition météo jour 3 [%s]"             <smiley>    
+
+String  vBlank
+String  vNotAvailable
+
+String vLeftGarageDoorState     "État porte garage gauche [MAP(door.map):%s]"
+String vRightGarageDoorState    "État porte garage droite [MAP(door.map):%s]"
+
+Switch vLeftGarageDoorButton    "Bouton porte garage gauche"                    <wallswitch>
+Switch vRightGarageDoorButton   "Bouton porte garage droite"                    <wallswitch>
+
+

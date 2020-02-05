@@ -1,0 +1,55 @@
+val LOGNAME = "RULE:calculateTimeOfDay"
+
+rule "Calculate time of day state" 
+when
+  System started or
+  Time cron "0 0 0 * * ? *"                             or // Minuit  
+  Channel "astro:sun:local:rise#event"  triggered START or // Levé du soleil
+  Time cron "0 0 12 * * ? *"                            or // Midi  
+  Channel "astro:sun:local:set#event"   triggered START    // Couché du soleil
+then
+
+  logInfo(LOGNAME, "Calculating time of day...")
+
+  val currentTime = now
+  logInfo(LOGNAME, "Now :" + currentTime.toString)  
+
+  // Convert the Astro Items to Joda DateTime
+  val night_start = currentTime.withTimeAtStartOfDay.plusDays(1).minusHours(24)  
+  var morning_start = new DateTime(localSun_Rise_StartTime.state.toString)
+  if(morning_start < night_start){
+      morning_start = morning_start.plusDays(1)  
+  }
+  val afternoon_start = currentTime.withTimeAtStartOfDay.plusDays(1).minusHours(12)
+  var evening_start = new DateTime(localSun_Set_StartTime.state.toString)
+  if(evening_start < afternoon_start){
+    evening_start = evening_start.plusDays(1)  
+  }
+
+  logInfo(LOGNAME, "Night start :" + night_start.toString)
+  logInfo(LOGNAME, "Morning start :" + morning_start.toString)
+  logInfo(LOGNAME, "Afternoon start:" + afternoon_start.toString)
+  logInfo(LOGNAME, "Evening start :" + evening_start.toString)
+
+  // Calculate the current time of day
+  switch currentTime {
+  	case currentTime.isAfter(night_start) && currentTime.isBefore(morning_start):{
+      vTimeOfDay.sendCommand("NIGHT")
+      vWeatherIconFlag.postUpdate("night")      
+    } 
+  	case currentTime.isAfter(morning_start) && currentTime.isBefore(afternoon_start):{
+      vTimeOfDay.sendCommand("MORNING")
+      vWeatherIconFlag.postUpdate("day")      
+    } 
+  	case currentTime.isAfter(afternoon_start) && currentTime.isBefore(evening_start):{
+      vTimeOfDay.sendCommand("AFTERNOON")      
+      vWeatherIconFlag.postUpdate("day")      
+    }
+  	case currentTime.isAfter(evening_start):{
+      vTimeOfDay.sendCommand("EVENING")
+      vWeatherIconFlag.postUpdate("night")      
+    }
+  }
+
+end
+

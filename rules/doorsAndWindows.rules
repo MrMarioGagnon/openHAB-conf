@@ -1,0 +1,13 @@
+val LOGNAME = "RULE:doorsAndWindows"
+
+rule "Doors open/close"
+when
+    Item DoorSensorFirstFloor_01_BinarySensor   received update or
+    Item DoorSensorFirstFloor_02_BinarySensor   received update or
+    Item DoorSensorFirstFloor_03_BinarySensor   received update or
+    Item DoorSensorGarage_BinarySensor          received update or
+    Item TiltSensorGarageDoor_01_BinarySensor   received update or
+    Item TiltSensorGarageDoor_02_BinarySensor   received update
+then
+    playSound("beepbeepbeep.mp3")
+end

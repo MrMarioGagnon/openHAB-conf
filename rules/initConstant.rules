@@ -1,0 +1,9 @@
+val LOGNAME = "RULE:initConstant"
+
+rule "Init constant"
+when
+    System started
+then
+    vBlank.postUpdate("")
+    vNotAvailable.postUpdate("N/D")
+end

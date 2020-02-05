@@ -1,0 +1,2 @@
+// Switch  GarageRemoteControl_01_BoutonPorteGauche "Bouton télécommande porte gauche"    <wallswitch>    {channel="mqtt:topic:acd89368:RemoteControlButton0",autoupdate="false"}
+// Switch  GarageRemoteControl_01_BoutonPorteDroite "Bouton télécommande porte droite"    <wallswitch>    {channel="mqtt:topic:acd89368:RemoteControlButton1",autoupdate="false"}

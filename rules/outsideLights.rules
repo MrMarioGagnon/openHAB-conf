@@ -1,0 +1,21 @@
+val LOGNAME = "RULE:outsideLights"
+
+rule "Outside lights ON"
+when
+    Item vTimeOfDay changed to "EVENING"
+then
+
+    createTimer(now.plusMinutes(20)) [ |
+        ReceptacleOutdoor_01_Switch.sendCommand(ON);
+        gFrontHouseLights.sendCommand(ON)
+    ]
+
+end
+
+rule "Outside lights OFF"
+when
+	Time cron "0 0 22 1/1 * ? *"
+then
+    ReceptacleOutdoor_01_Switch.sendCommand(OFF)
+    gFrontHouseLights.sendCommand(OFF)
+end

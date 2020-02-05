@@ -1,0 +1,5 @@
+Switch      MarioCell_Online        "Mario [MAP(presence.map):%s]"              <man_3>     {channel="network:pingdevice:77620ef1:online", autoupdate="false"}
+DateTime    MarioCell_LastSeen      "Mario vu pour la dernière fois"            <time>      {channel="network:pingdevice:77620ef1:lastseen"}
+Switch      NathalieCell_Online     "Nathalie [MAP(presence.map):%s]"           <woman_3>   {channel="network:pingdevice:fdf8da88:online", autoupdate="false"}
+DateTime    NathalieCell_LastSeen   "Nathalie vu pour la dernière fois"         <time>      {channel="network:pingdevice:fdf8da88:lastseen"}
+

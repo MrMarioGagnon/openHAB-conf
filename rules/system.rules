@@ -1,0 +1,20 @@
+val LOGNAME = "RULE:system"
+
+rule "Reboot openHAB"
+when
+    Item fSystem received command "Reboot"
+then
+   	logInfo(LOGNAME, "Rebooting openHAB")
+    executeCommandLine("sudo@@reboot", 60000)
+
+    // TODO ajouter say() pour avertir que le sysyteme est en reboot
+
+end
+
+rule "Shut down openHAB"
+when
+    Item fSystem received command "PowerOff"
+then
+	logInfo(LOGNAME, "Shutting down openHAB")
+    executeCommandLine("sudo@@poweroff")
+end
